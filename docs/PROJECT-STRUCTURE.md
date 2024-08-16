@@ -25,8 +25,8 @@ src/
     external-supplier.module.ts
     external-supplier.service.ts
     strategies/
-      supplier-strategies.ts
-      supplier-strategy.interface.ts
+      external-supplier.strategies.ts
+      external-supplier-strategy.interface.ts
       acme.strategy.ts
       patagonia.strategy.ts
       paperflies.strategy.ts
@@ -57,8 +57,30 @@ The `external-supplier` module is responsible for managing external suppliers. I
 
 - `external-supplier.module.ts`: Defines the module.
 - `external-supplier.service.ts`: Contains the business logic for the module.
-- `strategies/supplier-strategies.ts`: Contains a list of strategies for handling different suppliers.
+- `strategies/external-supplier.strategies.ts`: Contains a list of strategies for handling different suppliers.
 - `strategies/supplier-strategy.interface.ts`: Defines the interface that each supplier strategy must implement.
 - `strategies/acme.strategy.ts`: Defines the strategy for handling the Acme supplier.
 - `strategies/patagonia.strategy.ts`: Defines the strategy for handling the Patagonia supplier.
 - `strategies/paperflies.strategy.ts`: Defines the strategy for handling the Paperflies supplier.
+
+This external-supplier module applies the Dependency Inversion Principle and the Strategy Pattern to fetch data from multiple sources.
+
+It enables loose coupling between high-level and low-level modules. By depending on abstractions rather than concrete implementations, the code becomes more flexible and easier to maintain. This pattern allows us to switch between different data sources without modifying the core logic, such as `getURL` and mapping response data to `HotelDto`.
+
+For example, if we want to add a new supplier, we only need to create a new supplier strategy under the `external-supplier/strategies` folder and include it in the `supplierStrategies` list in `external-supplier.strategies.ts`. After that, we need to define the `getURL` and `mapToDto` functions for the new supplier.
+
+```
+external-supplier/
+  external-supplier.module.ts
+  external-supplier.service.ts
+  strategies/
+    supplier-strategies.ts
+    supplier-strategy.interface.ts
+    acme.strategy.ts
+    patagonia.strategy.ts
+    paperflies.strategy.ts
+    ...N...strategy.ts
+```
+
+
+
