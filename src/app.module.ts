@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { HotelModule } from './hotels/hotels.module';
 import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 
@@ -8,6 +9,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
       ttl: 300,
       max: 100,
     }),
+    HotelModule,
   ],
   providers: [
     {
@@ -16,4 +18,4 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
     },
   ],
 })
-export class AppModule {}
+export class AppModule { }
