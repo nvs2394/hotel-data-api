@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { Transform, Type } from 'class-transformer';
 import {
   IsOptional,
@@ -5,13 +6,17 @@ import {
   MaxLength,
   IsArray,
   ArrayNotEmpty,
-  Matches,
+  IsNumber,
+  Max,
+  Min,
 } from 'class-validator';
 
 export class GetHotelsQueryDto {
   @IsOptional()
-  @Matches(/^\d{4}$/, { message: 'Destination ID must be a 4-digit number.' })
   @Type(() => Number)
+  @IsNumber({}, { message: 'Destination ID must be a number.' })
+  @Min(1000, { message: 'Destination ID must be a 4-digit number.' })
+  @Max(9999, { message: 'Destination ID must be a 4-digit number.' })
   destinationId?: number;
 
   @IsOptional()

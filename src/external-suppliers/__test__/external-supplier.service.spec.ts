@@ -111,11 +111,5 @@ describe('ExternalSupplierService', () => {
 
       expect(result[0]).toBeInstanceOf(HotelDto);
     });
-
-    // it('should throw an error for unsupported supplier types', () => {
-    //   expect(() =>
-    //     service['mapToDto']('INVALID_SUPPLIER' as Supplier, {}),
-    //   ).toThrow('Unsupported supplier: INVALID_SUPPLIER');
-    // });
   });
 });

@@ -87,6 +87,7 @@ describe('HotelController (e2e)', () => {
           lng: 0,
           address: '8 Sentosa Gateway, Beach Villas, 098269',
           country: 'Singapore',
+          city: '',
         },
         amenities: {
           general: [
@@ -123,7 +124,7 @@ describe('HotelController (e2e)', () => {
           'Free private parking is possible on site (reservation is not needed).',
           "Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Payment before arrival via bank transfer is required. The property will contact you after you book to provide instructions. Please note that the full amount of the reservation is due before arrival. Resorts World Sentosa will send a confirmation with detailed payment information. After full payment is taken, the property's details, including the address and where to collect keys, will be emailed to you. Bag checks will be conducted prior to entry to Adventure Cove Waterpark. === Upon check-in, guests will be provided with complimentary Sentosa Pass (monorail) to enjoy unlimited transportation between Sentosa Island and Harbour Front (VivoCity). === Prepayment for non refundable bookings will be charged by RWS Call Centre. === All guests can enjoy complimentary parking during their stay, limited to one exit from the hotel per day. === Room reservation charges will be charged upon check-in. Credit card provided upon reservation is for guarantee purpose. === For reservations made with inclusive breakfast, please note that breakfast is applicable only for number of adults paid in the room rate. Any children or additional adults are charged separately for breakfast and are to paid directly to the hotel.",
         ],
-        id: 5432,
+        id: 'iJhz',
         destinationId: 5432,
         name: 'Beach Villas Singapore',
         description:

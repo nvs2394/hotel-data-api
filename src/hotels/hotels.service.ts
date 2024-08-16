@@ -17,7 +17,9 @@ export class HotelService {
 
     if (hotelIds?.length > 0) {
       mergedData = mergedData.filter((hotel) => hotelIds.includes(hotel.id));
-    } else if (destinationId) {
+    }
+
+    if (destinationId) {
       mergedData = mergedData.filter(
         (hotel) => hotel.destinationId === destinationId,
       );

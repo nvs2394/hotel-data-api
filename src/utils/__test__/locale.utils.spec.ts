@@ -11,13 +11,14 @@ describe('getCountryName', () => {
   });
 
   test.each`
-    input    | mockReturnValue    | expectedOutput
-    ${'US'}  | ${'United States'} | ${'United States'}
-    ${'CA'}  | ${'Canada'}        | ${'Canada'}
-    ${'U'}   | ${undefined}       | ${'U'}
-    ${''}    | ${undefined}       | ${''}
-    ${'USA'} | ${undefined}       | ${'USA'}
-    ${'FR'}  | ${'France'}        | ${'France'}
+    input     | mockReturnValue    | expectedOutput
+    ${'US'}   | ${'United States'} | ${'United States'}
+    ${'CA'}   | ${'Canada'}        | ${'Canada'}
+    ${'U'}    | ${undefined}       | ${'U'}
+    ${''}     | ${undefined}       | ${''}
+    ${'USA'}  | ${undefined}       | ${'USA'}
+    ${'FR'}   | ${'France'}        | ${'France'}
+    ${'####'} | ${undefined}       | ${'####'}
   `(
     'should return $expectedOutput when input is $input',
     ({ input, mockReturnValue, expectedOutput }) => {
@@ -36,4 +37,9 @@ describe('getCountryName', () => {
       expect(result).toBe(expectedOutput);
     },
   );
+
+  it('should return empty string when input is undefined', () => {
+    const result = getCountryName();
+    expect(result).toBe('');
+  });
 });

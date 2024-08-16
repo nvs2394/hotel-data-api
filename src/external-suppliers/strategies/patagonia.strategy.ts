@@ -1,6 +1,11 @@
 import { plainToInstance } from 'class-transformer';
 import { SupplierStrategy } from './external-supplier.strategies';
-import { HotelDto, HotelImagesDto, HotelLocation } from '../../dto/hotel.dto';
+import {
+  HotelAmenitiesDto,
+  HotelDto,
+  HotelImagesDto,
+  HotelLocation,
+} from '../../dto/hotel.dto';
 import * as _ from 'lodash';
 
 export class PatagoniaSupplierStrategy implements SupplierStrategy {
@@ -17,7 +22,7 @@ export class PatagoniaSupplierStrategy implements SupplierStrategy {
           name: _.get(obj, 'name'),
           description: _.get(obj, 'info'),
           location: this.mapLocation(obj),
-          amenities: this.mapAmenities(_.get(obj, 'amenities')),
+          amenities: this.mapAmenities(obj),
           images: this.mapImages(obj),
           bookingConditions: [],
         } as HotelDto,
@@ -52,8 +57,12 @@ export class PatagoniaSupplierStrategy implements SupplierStrategy {
     country: '',
   });
 
-  private mapAmenities = (obj: object) => ({
-    general: _.get(obj, 'amenities', []),
-    room: [],
-  });
+  private mapAmenities = (obj: object): HotelAmenitiesDto => {
+    const general = _.get(obj, 'amenities', []) || [];
+    const room = [];
+    return {
+      general,
+      room,
+    };
+  };
 }
