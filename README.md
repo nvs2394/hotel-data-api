@@ -1,6 +1,6 @@
 ## Description
 
-This project is a solution developed by Ascenda in response to [this Gist](https://gist.github.com/Attila24/ab7133f86f7fc83de7996877d92ba88b). It is a Node.js application that integrates with external suppliers to retrieve and merge hotel data, offering a unified API for comprehensive hotel information.
+This is a Node.js application that integrates with external suppliers to retrieve and merge hotel data, offering a unified API for comprehensive hotel information.
 
 ## Getting Started
 
